@@ -2,7 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Scoreboard Control</title>
+<title>Admin Panel</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 body{
@@ -10,25 +12,25 @@ font-family:Arial;
 padding:20px;
 }
 
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+font-size:18px;
+}
+
 button{
 width:100%;
 padding:15px;
-margin:5px 0;
 font-size:20px;
-}
-
-input{
-width:100%;
-padding:10px;
-margin:5px 0;
-font-size:18px;
+margin:10px 0;
 }
 </style>
 </head>
 
 <body>
 
-<h2>Football Scoreboard Control</h2>
+<h2>Football Scoreboard Admin</h2>
 
 <input id="home" placeholder="Home Team">
 
@@ -36,22 +38,30 @@ font-size:18px;
 
 <button onclick="saveTeams()">Save Team Names</button>
 
-<button onclick="homePlus()">HOME +1</button>
-
-<button onclick="awayPlus()">AWAY +1</button>
-
 <script>
-function saveTeams(){
-alert("Team Name Save Feature Next Step");
+
+const supabase = window.supabase.createClient(
+"https://dhmlppbxsstnohurrvbg.supabase.co",
+"sb_publishable_dkZDjzR4yJJr563b7wh3eA_tTl3gNni"
+);
+
+async function saveTeams(){
+
+const home=document.getElementById("home").value;
+const away=document.getElementById("away").value;
+
+await supabase
+.from("match_data")
+.update({
+home_team:home,
+away_team:away
+})
+.eq("id",1);
+
+alert("Saved");
+
 }
 
-function homePlus(){
-alert("Home Goal +1 Next Step");
-}
-
-function awayPlus(){
-alert("Away Goal +1 Next Step");
-}
 </script>
 
 </body>
