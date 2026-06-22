@@ -1,1 +1,86 @@
-<h1>Football Scoreboard</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Football Scoreboard</title>
+
+<style>
+body{
+margin:0;
+background:transparent;
+font-family:Arial,sans-serif;
+}
+
+.scoreboard{
+width:900px;
+height:100px;
+margin:auto;
+margin-top:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.team1{
+background:#0066ff;
+color:white;
+padding:20px 40px;
+font-size:30px;
+font-weight:bold;
+}
+
+.score{
+background:#111;
+color:white;
+padding:20px 30px;
+font-size:40px;
+font-weight:bold;
+}
+
+.team2{
+background:#ff0000;
+color:white;
+padding:20px 40px;
+font-size:30px;
+font-weight:bold;
+}
+
+.timer{
+position:absolute;
+top:5px;
+left:50%;
+transform:translateX(-50%);
+background:black;
+color:white;
+padding:8px 20px;
+font-size:22px;
+font-weight:bold;
+}
+
+.half{
+position:absolute;
+top:70px;
+left:50%;
+transform:translateX(-50%);
+background:black;
+color:#00ff00;
+padding:5px 15px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="timer">00:00</div>
+
+<div class="scoreboard">
+<div class="team1">HOME</div>
+<div class="score">0 - 0</div>
+<div class="team2">AWAY</div>
+</div>
+
+<div class="half">1ST HALF</div>
+
+</body>
+</html>
